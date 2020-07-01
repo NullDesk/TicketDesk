@@ -19,7 +19,7 @@ namespace TicketDesk.Localization.Domain {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -165,6 +165,15 @@ namespace TicketDesk.Localization.Domain {
         public static string DefaultListNameUnassigned {
             get {
                 return ResourceManager.GetString("DefaultListNameUnassigned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Logon Domain.
+        /// </summary>
+        public static string DefaultLogonDomain {
+            get {
+                return ResourceManager.GetString("DefaultLogonDomain", resourceCulture);
             }
         }
         
@@ -565,6 +574,24 @@ namespace TicketDesk.Localization.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actual Duration.
+        /// </summary>
+        public static string TicketActualDuration {
+            get {
+                return ResourceManager.GetString("TicketActualDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actual.
+        /// </summary>
+        public static string TicketActualDurationShort {
+            get {
+                return ResourceManager.GetString("TicketActualDurationShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Affects Customer.
         /// </summary>
         public static string TicketAffectsCustomer {
@@ -709,6 +736,42 @@ namespace TicketDesk.Localization.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Due Date.
+        /// </summary>
+        public static string TicketDueDate {
+            get {
+                return ResourceManager.GetString("TicketDueDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Due.
+        /// </summary>
+        public static string TicketDueDateShort {
+            get {
+                return ResourceManager.GetString("TicketDueDateShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated Duration.
+        /// </summary>
+        public static string TicketEstimatedDuration {
+            get {
+                return ResourceManager.GetString("TicketEstimatedDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated.
+        /// </summary>
+        public static string TicketEstimatedDurationShort {
+            get {
+                return ResourceManager.GetString("TicketEstimatedDurationShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is Html.
         /// </summary>
         public static string TicketIsHtml {
@@ -817,6 +880,24 @@ namespace TicketDesk.Localization.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resolution Date.
+        /// </summary>
+        public static string TicketResolutionDate {
+            get {
+                return ResourceManager.GetString("TicketResolutionDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resolution.
+        /// </summary>
+        public static string TicketResolutionDateShort {
+            get {
+                return ResourceManager.GetString("TicketResolutionDateShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Active.
         /// </summary>
         public static string TicketStatusActive {
@@ -867,6 +948,24 @@ namespace TicketDesk.Localization.Domain {
         public static string TicketTagListShort {
             get {
                 return ResourceManager.GetString("TicketTagListShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target Date.
+        /// </summary>
+        public static string TicketTargetDate {
+            get {
+                return ResourceManager.GetString("TicketTargetDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target.
+        /// </summary>
+        public static string TicketTargetDateShort {
+            get {
+                return ResourceManager.GetString("TicketTargetDateShort", resourceCulture);
             }
         }
         

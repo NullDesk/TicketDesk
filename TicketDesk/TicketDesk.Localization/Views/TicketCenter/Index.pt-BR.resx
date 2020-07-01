@@ -159,6 +159,9 @@
   <data name="TicketList_Created" xml:space="preserve">
     <value>Criado Em</value>
   </data>
+  <data name="TicketList_Due" xml:space="preserve">
+    <value>Vencimento</value>
+  </data>
   <data name="TicketList_ID" xml:space="preserve">
     <value>ID</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="TicketList_Status" xml:space="preserve">
     <value>Situação</value>
+  </data>
+  <data name="TicketList_Target" xml:space="preserve">
+    <value>Alvo</value>
   </data>
   <data name="TicketList_Title" xml:space="preserve">
     <value>Título</value>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +40,9 @@
     </Reference>
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -393,6 +399,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lockout.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserAdministration\New.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>New.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\User\Register.pt-BR.Designer.cs">
       <DependentUpon>Register.pt-BR.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -415,6 +426,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\Strings.de-DE.resx" />
     <EmbeddedResource Include="Controllers\Strings.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.pt-BR.Designer.cs</LastGenOutput>
@@ -422,6 +434,9 @@
     <EmbeddedResource Include="Controllers\Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Domain\Strings.de-DE.resx">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\Strings.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -433,6 +448,11 @@
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Identity\Strings.de-DE.resx" />
+    <EmbeddedResource Include="Infrastructure\Strings.de-DE.resx" />
+    <EmbeddedResource Include="Models\Strings.de-DE.resx" />
+    <EmbeddedResource Include="PushNotifications\Strings.de-DE.resx" />
+    <EmbeddedResource Include="Validation.de-DE.resx" />
     <EmbeddedResource Include="Validation.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Validation.pt-BR.Designer.cs</LastGenOutput>
@@ -474,6 +494,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\ChangePassword.de-DE.resx" />
     <EmbeddedResource Include="Views\Account\ChangePassword.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ChangePassword.pt-BR.Designer.cs</LastGenOutput>
@@ -482,6 +503,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ChangePassword.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\EditProfile.de-DE.resx" />
     <EmbeddedResource Include="Views\Account\EditProfile.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EditProfile.pt-BR.Designer.cs</LastGenOutput>
@@ -490,6 +512,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EditProfile.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\Manage.de-DE.resx" />
     <EmbeddedResource Include="Views\Account\Manage.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Manage.pt-BR.Designer.cs</LastGenOutput>
@@ -498,6 +521,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Manage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ApplicationSettings\Index.de-DE.resx" />
     <EmbeddedResource Include="Views\ApplicationSettings\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -506,6 +530,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DataManagement\Demo.de-DE.resx" />
     <EmbeddedResource Include="Views\DataManagement\Demo.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Demo.pt-BR.Designer.cs</LastGenOutput>
@@ -514,6 +539,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Demo.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DataManagement\Index.de-DE.resx" />
     <EmbeddedResource Include="Views\DataManagement\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -522,6 +548,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Emails\Strings.de-DE.resx" />
     <EmbeddedResource Include="Views\Emails\Strings.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.pt-BR.Designer.cs</LastGenOutput>
@@ -530,6 +557,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\About.de-DE.resx" />
     <EmbeddedResource Include="Views\Home\About.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>About.pt-BR.Designer.cs</LastGenOutput>
@@ -538,11 +566,13 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>About.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\AccessDenied.de-DE.resx" />
     <EmbeddedResource Include="Views\Home\AccessDenied.pt-BR.resx" />
     <EmbeddedResource Include="Views\Home\AccessDenied.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AccessDenied.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\Index.de-DE.resx" />
     <EmbeddedResource Include="Views\Home\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -551,6 +581,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProjectSettings\Edit.de-DE.resx" />
     <EmbeddedResource Include="Views\ProjectSettings\Edit.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Edit.pt-BR.Designer.cs</LastGenOutput>
@@ -559,6 +590,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Edit.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProjectSettings\Index.de-DE.resx" />
     <EmbeddedResource Include="Views\ProjectSettings\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -567,6 +599,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProjectSettings\New.de-DE.resx" />
     <EmbeddedResource Include="Views\ProjectSettings\New.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>New.pt-BR.Designer.cs</LastGenOutput>
@@ -575,6 +608,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>New.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\PushNotificationSettings\ConfigureDeliveryProvider.de-DE.resx" />
     <EmbeddedResource Include="Views\PushNotificationSettings\ConfigureDeliveryProvider.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ConfigureDeliveryProvider.pt-BR.Designer.cs</LastGenOutput>
@@ -583,6 +617,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ConfigureDeliveryProvider.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\PushNotificationSettings\Index.de-DE.resx" />
     <EmbeddedResource Include="Views\PushNotificationSettings\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -591,6 +626,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\PushNotificationSettings\ListDeliveryProviderSettings.de-DE.resx" />
     <EmbeddedResource Include="Views\PushNotificationSettings\ListDeliveryProviderSettings.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ListDeliveryProviderSettings.pt-BR.Designer.cs</LastGenOutput>
@@ -599,6 +635,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ListDeliveryProviderSettings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\SearchManager\Index.de-DE.resx" />
     <EmbeddedResource Include="Views\SearchManager\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -607,6 +644,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Search\Index.de-DE.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Search\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -614,6 +654,7 @@
     <EmbeddedResource Include="Views\Search\Index.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Shared\Error.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -639,6 +680,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_Layout.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TicketActivity\Strings.de-DE.resx" />
     <EmbeddedResource Include="Views\TicketActivity\Strings.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.pt-BR.Designer.cs</LastGenOutput>
@@ -647,6 +689,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TicketCenter\Index.de-DE.resx" />
     <EmbeddedResource Include="Views\TicketCenter\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -655,6 +698,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Error.de-DE.resx" />
+    <EmbeddedResource Include="Views\Ticket\Index.de-DE.resx" />
     <EmbeddedResource Include="Views\Ticket\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -664,6 +709,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\Lockout.de-DE.resx" />
+    <EmbeddedResource Include="Views\Ticket\New.de-DE.resx" />
     <EmbeddedResource Include="Views\Ticket\New.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>New.pt-BR.Designer.cs</LastGenOutput>
@@ -672,6 +719,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>New.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\_Layout.de-DE.resx" />
+    <EmbeddedResource Include="Views\UserAdministration\Edit.de-DE.resx" />
     <EmbeddedResource Include="Views\UserAdministration\Edit.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Edit.pt-BR.Designer.cs</LastGenOutput>
@@ -680,6 +729,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Edit.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserAdministration\Index.de-DE.resx" />
     <EmbeddedResource Include="Views\UserAdministration\Index.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.pt-BR.Designer.cs</LastGenOutput>
@@ -688,6 +738,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Index.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserAdministration\New.de-DE.resx" />
+    <EmbeddedResource Include="Views\UserAdministration\New.pt-BR.resx" />
+    <EmbeddedResource Include="Views\User\Lockout.de-DE.resx" />
     <EmbeddedResource Include="Views\User\Lockout.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lockout.pt-BR.Designer.cs</LastGenOutput>
@@ -696,6 +749,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lockout.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserAdministration\New.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>New.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Register.de-DE.resx" />
     <EmbeddedResource Include="Views\User\Register.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Register.pt-BR.Designer.cs</LastGenOutput>
@@ -704,6 +762,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Register.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\SignIn.de-DE.resx" />
     <EmbeddedResource Include="Views\User\SignIn.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SignIn.pt-BR.Designer.cs</LastGenOutput>
@@ -713,7 +772,16 @@
       <LastGenOutput>SignIn.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -126,6 +126,21 @@
   <data name="BackOption" xml:space="preserve">
     <value>Voltar para usuários</value>
   </data>
+  <data name="CancelOption" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="CloseOption" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="DeleteAlert" xml:space="preserve">
+    <value>Essa ação não pode ser desfeita.</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Tem certeza de que deseja excluir esta conta?</value>
+  </data>
+  <data name="DeleteOption" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
   <data name="Header" xml:space="preserve">
     <value>Detalhes da Conta</value>
   </data>

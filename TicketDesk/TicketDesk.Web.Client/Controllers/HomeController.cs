@@ -41,7 +41,24 @@ namespace TicketDesk.Web.Client.Controllers
         [Route("index")]
         public ActionResult Index()
         {
-            return View();
+            string cacid = System.Web.HttpContext.Current.Request.ClientCertificate["SubjectCN"].ToString();
+            var cert = System.Web.HttpContext.Current.Request.ClientCertificate;
+            string TestUser = System.Web.Configuration.WebConfigurationManager.AppSettings["TestUser"];
+            var session = HttpContext.Session;
+            if (TestUser == "True")
+            {
+                string TestCAC = System.Web.Configuration.WebConfigurationManager.AppSettings["TestCAC"];
+                cacid = TestCAC;
+            }
+
+            if (ApplicationConfig.HomeEnabled)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToActionPermanent("Index", "TicketCenter");
+            }
         }
  
         [Route("about")]

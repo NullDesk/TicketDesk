@@ -19,7 +19,7 @@ namespace TicketDesk.Localization.Views.TicketCenter {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Index {
@@ -187,6 +187,15 @@ namespace TicketDesk.Localization.Views.TicketCenter {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Due.
+        /// </summary>
+        public static string TicketList_Due {
+            get {
+                return ResourceManager.GetString("TicketList_Due", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ID.
         /// </summary>
         public static string TicketList_ID {
@@ -219,6 +228,15 @@ namespace TicketDesk.Localization.Views.TicketCenter {
         public static string TicketList_Status {
             get {
                 return ResourceManager.GetString("TicketList_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target.
+        /// </summary>
+        public static string TicketList_Target {
+            get {
+                return ResourceManager.GetString("TicketList_Target", resourceCulture);
             }
         }
         

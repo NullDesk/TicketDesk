@@ -13,6 +13,7 @@
 
 using System;
 using System.Configuration;
+using System.DirectoryServices;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -54,7 +55,14 @@ namespace TicketDesk.Web.Client.Controllers
         [Route("register")]
         public ActionResult Register()
         {
-            return View();
+            if (ApplicationConfig.RegisterEnabled)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpPost]
@@ -65,7 +73,7 @@ namespace TicketDesk.Web.Client.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new TicketDeskUser { UserName = model.Email, Email = model.Email, DisplayName = model.DisplayName };
+                var user = new TicketDeskUser { UserName = model.UserName, Email = model.Email, DisplayName = model.DisplayName };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -126,17 +134,60 @@ namespace TicketDesk.Web.Client.Controllers
                 return View(model);
             }
 
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, true);
+            var result = await SignInManager.PasswordSignInAsync(model.UserNameOrEmail, model.Password, model.RememberMe, true);
+            if (result != SignInStatus.Success && model.UserNameOrEmail.Contains("@"))
+            {
+                var user = await UserManager.FindByEmailAsync(model.UserNameOrEmail);
+                if (user!=null)
+                {
+                    result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, true);
+                }
+            }
+
             switch (result)
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
-                default:
-                    ModelState.AddModelError("", Strings.InvalidLoginAttempt);
-                    return View(model);
             }
+
+            var domain = (DomainContext.TicketDeskSettings.SecuritySettings.DefaultLogonDomain ?? string.Empty).Trim();
+            if (!string.IsNullOrEmpty(domain))
+            {
+                var user = await UserManager.FindByNameAsync(model.UserNameOrEmail);
+                if (user == null)
+                {
+                    user = await UserManager.FindByNameAsync(model.UserNameOrEmail + "@" + domain);
+                }
+
+                if (user != null)
+                {
+                    var dsEntry = new DirectoryEntry("LDAP://" + domain)
+                    {
+                        Username = user.UserName,
+                        Password = model.Password
+                    };
+                    var dsSearch = new DirectorySearcher(dsEntry);
+                    dsSearch.Filter = "(objectclass=user)";
+                    var OK = false;
+                    try
+                    {
+                        OK = dsSearch.FindOne() != null;
+                    }
+                    catch { }
+
+                    if (OK)
+                    {
+                        await UserManager.ResetAccessFailedCountAsync(user.Id);
+                        await SignInManager.SignInAsync(user, model.RememberMe, true);
+                        return RedirectToLocal(returnUrl);
+                    }
+                }
+            }
+
+            ModelState.AddModelError("", Strings.InvalidLoginAttempt);
+            return View(model);
         }
 
         [Route("sign-out")]
